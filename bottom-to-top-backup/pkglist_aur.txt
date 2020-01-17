@@ -1,0 +1,6 @@
+mongodb
+nvtop
+python-cheetah3
+unifi
+xf86-input-keyboard
+xf86-input-mouse
