@@ -1,0 +1,93 @@
+## KVM
+
+Install Windows VM in Manjaro KVM
+https://www.fosslinux.com/2484/how-to-install-virtual-machine-manager-kvm-in-manjaro-and-arch-linux.htm
+
+Enable copy-paste in Windows VM
+https://gist.github.com/kurtis318/fbf5c4995318a1f18c982cc399da6f7b
+
+---
+
+## fcitx
+### Install Pinyin Input
+
+Reference: https://wiki.archlinux.org/index.php/Fcitx_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)#.E5.AE.89.E8.A3.85
+
+1.安装安装输入法模块:
+
+```
+# pacman -S fcitx-im             
+```
+2.安装输入法配置工具
+```
+# pacman -S fcitx-configtool
+# pacman -S fcitx-libpinyin
+
+OR
+
+# pacman -S fcitx-googlepinyin
+```
+
+### Firefox cannot use fcitx
+
+```
+sudo pacman -S fcitx-gtk3 
+```
+
+Make sure home path have these:
+```
+# They said KDE only need this file
+[fr3eze@ufo ~]$ cat ~/.pam_environment 
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
+
+[fr3eze@ufo ~]$ cat ~/.xprofile 
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+```
+
+---
+
+##  pacman
+
+```
+sudo pacman -S 软件名&emsp;# 安装
+sudo pacman -R 软件名&emsp;# 删除单个软件包，保留其全部已经安装的依赖关系
+sudo pacman -Rs 软件名 # 除指定软件包，及其所有没有被其他已安装软件包使用的依赖关系
+sudo pacman -Ss 软件名  # 查找软件
+sudo pacman -Sc # 清空并且下载新数据
+sudo pacman -Syu&emsp;# 升级所有软件包
+sudo pacman -Qs # 搜索已安装的包
+```
+
+---
+
+## Bluetooth
+
+Objective: Connect Xbox One S controller to bluetooth dongle 
+
+In `/etc/default/grub` and add the kernel flag 'bluetooth.disable_ertm=1' to the GRUB_CMDLINE_LINUX line.
+```
+GRUB_CMDLINE_LINUX='bluetooth.disable_ertm=1'
+```
+
+Then run `sudo grub-mkconfig -o /boot/grub/grub.cfg` and reboot.
+
+Open Bluetooth Devices panel, connect to the controller.
+
+---
+
+## Hardware monitoring
+
+https://wiki.archlinux.org/index.php/lm_sensors#Installation
+
+```
+# install package
+sudo pacman -S lm_sensors 
+# detect and generate configuration file (by default hit Enter all the way)
+sudo sensors-detect
+# check real time hardware monitoring stats
+watch -n 1 sensors 
+```
