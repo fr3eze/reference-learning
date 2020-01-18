@@ -63,3 +63,21 @@ Device     Boot Start       End   Sectors   Size Id Type
 
 --------------------------------------------------------
 
+[fr3eze@ufo /]$ sudo df -T
+Filesystem     Type      1K-blocks      Used Available Use% Mounted on
+dev            devtmpfs    8156268         0   8156268   0% /dev
+run            tmpfs       8196348      1524   8194824   1% /run
+/dev/nvme0n1p3 ext4      172288252  59051456 104415344  37% /
+tmpfs          tmpfs       8196348     98984   8097364   2% /dev/shm
+tmpfs          tmpfs       8196348         0   8196348   0% /sys/fs/cgroup
+tmpfs          tmpfs       8196348     45536   8150812   1% /tmp
+/dev/nvme0n1p2 ext4       50133544  34266252  13290908  73% /home
+/dev/nvme0n1p4 vfat         510984       280    510704   1% /boot/efi
+tmpfs          tmpfs       1639268        12   1639256   1% /run/user/1000
+/dev/sdb1      vfat        7865320   2601888   5263432  34% /run/media/fr3eze/540B-59F0
+/dev/sdc1      fuseblk   488384532 330384516 158000016  68% /run/media/fr3eze/TOSHIBA EXT
+/dev/sda2      fuseblk  1022606568 660453952 362152616  65% /run/media/fr3eze/Storage
+/dev/sda4      fuseblk   929513468 595247144 334266324  65% /run/media/fr3eze/588A7D878A7D6284
+
+--------------------------------------------------------
+
