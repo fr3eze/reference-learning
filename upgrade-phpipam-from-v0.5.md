@@ -1,4 +1,4 @@
-## Upgrade from v0.5 to latest version
+## Upgrade PHPIPAM from v0.5
 
 Problem statement: Upgrading of earlier PHPIPAM version is through a series of SQL scripts which is independent but continuous of each other. The quickest way to upgrade from old version to the latest is to collect all the SQL scripts, put them in oldest to newest order, and loop through them one time to an existing old database. 
 
